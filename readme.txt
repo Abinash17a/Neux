@@ -49,3 +49,27 @@
 ├── tailwind.config.js        # Tailwind configuration (if applicable)
 └── package.json              # Project metadata and dependencies
 
+-----------------------------COLOUR PALATTE CODE------------------------------------------
+-------Tailwind----------------------------------
+
+Colors Used
+Text Colors
+White (text): #FFFFFF
+Gray (paragraph text): #D1D5DB (text-gray-300)
+Gray (footer text): #9CA3AF (text-gray-400)
+Background Colors
+Gray (footer background): #111827 (bg-gray-900)
+Primary Colors
+Blue (button background): #3B82F6 (bg-blue-500)
+Blue Hover (button hover): #2563EB (hover:bg-blue-400)
+
+
+
+----------------------------------All Hex code------------------------------------
+Primary Blue: #3B82F6
+Blue Hover: #2563EB
+Light Blue Shadow: #93C5FD
+Footer Background: #111827
+Paragraph Gray: #D1D5DB
+Footer Gray: #9CA3AF
+Text White: #FFFFFF
