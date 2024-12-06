@@ -43,7 +43,7 @@ export default function HomePage() {
       <motion.section
         className="text-center py-20 px-6 bg-black"
         initial={{ opacity: 0 }}
-        animate={{ opacity: scrollPosition > 350 ? 1 : 0 }}
+        animate={{ opacity: scrollPosition > 400 ? 1 : 0 }}
         transition={{ duration: 1 }}
       >
         <h3 className="text-3xl sm:text-4xl font-extrabold text-blue-500">Our Features</h3>
@@ -76,7 +76,7 @@ export default function HomePage() {
       <motion.section
         className="text-center py-20 px-6"
         initial={{ opacity: 0 }}
-        animate={{ opacity: scrollPosition > 500 ? 1 : 0 }}
+        animate={{ opacity: scrollPosition > 900 ? 1 : 0 }}
         transition={{ duration: 1 }}
       >
         <h3 className="text-3xl sm:text-4xl font-extrabold text-blue-500">What Our Clients Say</h3>
@@ -100,7 +100,7 @@ export default function HomePage() {
       <motion.section
         className="bg-blue-500 text-center py-20 px-6"
         initial={{ opacity: 0 }}
-        animate={{ opacity: scrollPosition > 500 ? 1 : 0 }}
+        animate={{ opacity: scrollPosition > 1200 ? 1 : 0 }}
         transition={{ duration: 1 }}
       >
         <h3 className="text-3xl sm:text-4xl font-extrabold text-white">Ready to Get Started?</h3>
@@ -110,7 +110,7 @@ export default function HomePage() {
         <motion.button
           className="mt-8 bg-white text-blue-500 px-6 py-3 rounded-lg hover:bg-gray-200 shadow-lg transition-all duration-100 ease-in-out font-semibold text-lg"
           initial={{ opacity: 0 }}
-          animate={{ opacity: scrollPosition > 500 ? 1 : 0 }}
+          animate={{ opacity: scrollPosition > 1200 ? 1 : 0 }}
           transition={{ duration: 1 }}
           onClick={() => router.push('/contact')}
         >
