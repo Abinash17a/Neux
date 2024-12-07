@@ -94,6 +94,12 @@ export default function Header() {
             Services
           </a>
           <a
+            href="/blogs"
+            className="text-gray-300 font-semibold hover:text-blue-400 transition-colors"
+          >
+            Blogs
+          </a>
+          <a
             href="/contact"
             className="text-gray-300 font-semibold hover:text-blue-400 transition-colors"
           >

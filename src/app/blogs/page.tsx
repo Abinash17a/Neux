@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { blogs } from "../../app/data/blogsData";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -25,12 +26,10 @@ export default function BlogPage() {
     }
   });
 
-
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6">
       {/* Header with Filter and Sort Options */}
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold">Blogs</h1>
+      <div className="flex items-center justify-end mb-8">
         <div className="flex space-x-4">
           {/* Filter Button */}
           <div className="relative">
@@ -68,9 +67,7 @@ export default function BlogPage() {
                       setSelectedCategory(category);
                       setIsFilterDropdownOpen(false);
                     }}
-                    className={`px-4 py-2 cursor-pointer hover:bg-gray-700 ${
-                      selectedCategory === category ? "bg-gray-700" : ""
-                    }`}
+                    className={`px-4 py-2 cursor-pointer hover:bg-gray-700 ${selectedCategory === category ? "bg-gray-700" : ""}`}
                   >
                     {category}
                   </li>
@@ -108,9 +105,7 @@ export default function BlogPage() {
                     setSortOrder("Latest");
                     setIsSortDropdownOpen(false);
                   }}
-                  className={`px-4 py-2 cursor-pointer hover:bg-gray-700 ${
-                    sortOrder === "Latest" ? "bg-gray-700" : ""
-                  }`}
+                  className={`px-4 py-2 cursor-pointer hover:bg-gray-700 ${sortOrder === "Latest" ? "bg-gray-700" : ""}`}
                 >
                   Latest
                 </li>
@@ -119,9 +114,7 @@ export default function BlogPage() {
                     setSortOrder("Oldest");
                     setIsSortDropdownOpen(false);
                   }}
-                  className={`px-4 py-2 cursor-pointer hover:bg-gray-700 ${
-                    sortOrder === "Oldest" ? "bg-gray-700" : ""
-                  }`}
+                  className={`px-4 py-2 cursor-pointer hover:bg-gray-700 ${sortOrder === "Oldest" ? "bg-gray-700" : ""}`}
                 >
                   Oldest
                 </li>
@@ -131,34 +124,45 @@ export default function BlogPage() {
         </div>
       </div>
 
-      {/* Blog Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedBlogs.map((blog) => (
-          <div
-            key={blog.id}
-            className="bg-gray-800 rounded-lg shadow-lg overflow-hidden"
-          >
-            <img
-              src={blog.image}
-              alt={blog.title}
-              className="w-full h-40 object-cover"
-            />
-            <div className="p-4">
-              <h2 className="text-2xl font-bold mt-2">{blog.title}</h2>
-              <p className="text-sm text-gray-400">
-                {new Date(blog.date).toLocaleDateString()} by {blog.author}
-              </p>
-              <p className="mt-2 text-gray-300 line-clamp-3">{blog.description}</p>
-              <Link
-                href={`/blogs/${blog.id}`}
-                className="mt-4 inline-block text-blue-400 hover:underline font-semibold"
-              >
-                Read More →
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
+      {/* Blog Cards with Animation */}
+      <motion.div
+        layout
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        <AnimatePresence>
+          {sortedBlogs.map((blog) => (
+            <motion.div
+              key={blog.id}
+              layout
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="bg-gray-800 rounded-lg shadow-lg overflow-hidden"
+            >
+              <img
+                src={blog.image}
+                alt={blog.title}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-4">
+                <p className="text-sm text-gray-400">
+                  {new Date(blog.date).toLocaleDateString()} by {blog.author}
+                </p>
+                <p className="mt-2 text-gray-300 line-clamp-3">
+                  {blog.description}
+                </p>
+                <Link
+                  href={`/blogs/${blog.id}`}
+                  className="mt-4 inline-block text-blue-400 hover:underline font-semibold"
+                >
+                  Read More →
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }
