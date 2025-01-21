@@ -59,10 +59,16 @@ export default function Header() {
                 About
               </a>
               <a
-                href="/services"
+                href="/docs"
                 className="block px-4 py-2 text-gray-300 hover:text-blue-400 hover:bg-gray-700 rounded-md transition-colors"
               >
-                Services
+                Docs
+              </a>
+              <a
+                href="/blogs"
+                className="text-gray-300 font-semibold hover:text-blue-400 transition-colors"
+              >
+                Blogs
               </a>
               <a
                 href="/contact"
@@ -88,10 +94,10 @@ export default function Header() {
             About
           </a>
           <a
-            href="/services"
+            href="/docs"
             className="text-gray-300 font-semibold hover:text-blue-400 transition-colors"
           >
-            Services
+            Docs
           </a>
           <a
             href="/blogs"
